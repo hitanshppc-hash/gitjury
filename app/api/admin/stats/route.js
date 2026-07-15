@@ -94,6 +94,7 @@ function summarize(entries) {
 }
 
 export async function GET() {
-  const entries = getAllVerdicts().filter((e) => e.ok && e.verdict);
+  const all = await getAllVerdicts();
+  const entries = all.filter((e) => e.ok && e.verdict);
   return NextResponse.json(summarize(entries));
 }

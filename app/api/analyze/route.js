@@ -26,7 +26,7 @@ async function judgeOne(input, { forceRefresh = false } = {}) {
     const meta = await fetchRepoMeta(parsed);
 
     if (!forceRefresh) {
-      const cached = getCachedVerdict(parsed.slug, meta.pushed_at);
+      const cached = await getCachedVerdict(parsed.slug, meta.pushed_at);
       if (cached) return { ...base, ...cached, fromCache: true };
     }
 
@@ -64,7 +64,7 @@ async function judgeOne(input, { forceRefresh = false } = {}) {
       },
     };
 
-    setCachedVerdict(digest.slug, meta.pushed_at, judged);
+    await setCachedVerdict(digest.slug, meta.pushed_at, judged);
     return { ...base, ...judged };
   } catch (err) {
     const isGh = err instanceof GitHubError;
