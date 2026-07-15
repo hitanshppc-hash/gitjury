@@ -1,0 +1,29 @@
+name = "gitjury"
+version = "0.1.0"
+status = "active"
+path = "."
+tags = ["saas", "ai-judge", "github"]
+
+[paul]
+version = "1.4"
+source = "https://chrisai.cv/skool"
+
+[milestone]
+name = "v0.1 MVP"
+version = "0.1.0"
+status = "in_progress"
+phases = 6
+
+[phase]
+number = 1
+name = "Scaffold + design system"
+status = "in_progress"
+plans_completed = 0
+plans_defined = 1
+
+[loop]
+position = "APPLY"
+
+[stats]
+total_plans = 1
+total_phases = 1
